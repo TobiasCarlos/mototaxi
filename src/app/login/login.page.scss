@@ -33,14 +33,14 @@ form {
     width: 90%;
     background: white;
     min-height: 6vh;
+    max-height: 6vh;
     border: 3px solid var(--ion-color-primary);
     border-radius: 15px;
     padding: 0 20px !important;
-    padding-top: 6px !important;
+
     font-size: calc(1.5vw + 1.5vh);
 
     ion-icon {
-      margin-bottom: 4px;
       padding-right: 11px;
       margin-left: -8px;
       font-size: 20px;
@@ -49,18 +49,17 @@ form {
 
   ion-button {
     width: 90%;
-    min-height: 4vh;
-    max-height: 6.5vh;
+    min-height: 6.3vh;
+    max-height: 6.3vh;
     margin-top: 2vh;
     font-size: calc(1.9vw + 1.9vh);
-    border-radius: 15px;
+    border-radius: 15px !important;
     font-weight: 400;
     font-family: "Numans", sans-serif;
     ion-icon {
-      margin-bottom: 4px;
       padding-right: 11px;
       margin-left: -8px;
-      font-size: 20px;
+      font-size: 30px;
     }
   }
 }
