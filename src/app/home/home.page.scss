@@ -12,16 +12,116 @@
   font-size: 20px;
   line-height: 26px;
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.cashback {
+  position: absolute;
+  right: 25px;
+  top: 18px;
+  font-family: "Numans", sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ion-icon {
+    font-size: 24px;
+    padding-right: 5px;
+  }
+}
+.numEndereco {
+  width: 30%;
+}
+h1 {
+  font-family: "Numans", sans-serif;
+  font-size: 31px;
+}
+.endereco {
+  width: 65%;
+  margin-left: 7px;
+}
+.relative {
+  position: relative;
+}
+.number {
+  position: absolute;
+  right: 10px;
+  top: -25px;
+  width: 36.5%;
+}
+.numberLabel {
+  left: 21px;
+}
+.sexo {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  gap: 10px;
+  margin-top: -10px;
+  .mf {
+    width: 33.3%;
+    border: 3px solid var(--ion-color-primary);
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    .line {
+      width: 2px;
+      height: 80%;
+      margin-top: 3%;
+      background: var(--ion-color-primary);
+    }
+  }
+  .m {
+    width: 33.3%;
+    border: 3px solid var(--ion-color-primary);
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .f {
+    width: 33.3%;
+    border: 3px solid var(--ion-color-primary);
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .active {
+    height: 110%;
+    background: var(--ion-color-primary);
+    border: 6px double white;
+    .line {
+      background-color: white;
+    }
+  }
 }
 
-#container a {
-  text-decoration: none;
+.quant {
+  width: 50%;
+  .inputs {
+    padding-left: 28%;
+    font-size: 23px;
+  }
+  ion-label {
+    margin-left: 23%;
+  }
+}
+
+ion-button {
+  width: 90%;
+  min-height: 5vh;
+  max-height: 5vh;
+  margin-top: 2vh;
+  font-size: calc(1.7vw + 1.7vh);
+  --border-radius: 15px !important;
+  font-weight: 400;
+  font-family: "Numans", sans-serif;
+  ion-icon {
+    padding-right: 11px;
+    margin-left: -8px;
+    font-size: 30px;
+  }
 }
