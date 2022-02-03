@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyCIAugPCB03tutjG6eyZHk0zaY79HzUDfI',
+    authDomain: 'mototaxi-51682.firebaseapp.com',
+    projectId: 'mototaxi-51682',
+    storageBucket: 'mototaxi-51682.appspot.com',
+    messagingSenderId: '588617972398',
+    appId: '1:588617972398:web:dadcb9c007f5676f0ecb3f',
+    measurementId: 'G-TSH1JRMZPK',
+  },
 };
 
 /*

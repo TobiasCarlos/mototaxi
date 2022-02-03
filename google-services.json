@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "588617972398",
+    "project_id": "mototaxi-51682",
+    "storage_bucket": "mototaxi-51682.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588617972398:android:1673a77cdaf3b86f0ecb3f",
+        "android_client_info": {
+          "package_name": "com.tcb.taxi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588617972398-vh98af5nkgf3nv7einacfb54nfn2l8qn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tcb.taxi",
+            "certificate_hash": "8125d8930056f4958c69ab264c00d29271d270c2"
+          }
+        },
+        {
+          "client_id": "588617972398-n0m5ua83vgplarkgjlqf0shoed0g6ovn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB22wHSkxakDTRPcJafqqwgBxnXUqQamfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588617972398-n0m5ua83vgplarkgjlqf0shoed0g6ovn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

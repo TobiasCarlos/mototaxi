@@ -1,7 +1,8 @@
 {
   "name": "C:/Program Files/Git/",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
