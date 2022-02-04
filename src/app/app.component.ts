@@ -6,13 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
-
-  //   login() {
-  //     this.firebaseAuthentication
-  //       .verifyPhoneNumber('+5535998893157', 60000)
-  //       .then((date) => {
-  //         console.log(date);
-  //       });
-  //   }
+  navigate = []
+  constructor() {
+    this.navigate = [
+      {
+        title: "mapa",
+        icon: "map",
+        url: "/mapa"
+      }
+    ]
+  }
 }
