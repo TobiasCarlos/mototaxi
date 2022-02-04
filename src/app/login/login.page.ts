@@ -3,6 +3,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever';
 
+declare let grecaptcha: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -11,14 +13,13 @@ import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever';
 export class LoginPage implements OnInit {
   numberTel = '';
   recaptchaVerifier;
+  confirmationResult;
+  code;
+  recaptchaWidgetId;
   constructor(private fire: AngularFireAuth) {}
 
   ngOnInit() {}
-  ionViewDidEnter() {
-    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign', {
-      size: 'invisible',
-    });
-  }
+  ionViewDidEnter() {}
   formatNumber(e) {
     //formartar numero telefone
     const value = e.target.value;
@@ -29,18 +30,39 @@ export class LoginPage implements OnInit {
     }
   }
 
-  async verificaNumber() {
+  async sendNumero() {
+    this.recaptchaVerifier.render().then((widgetId) => {
+      this.recaptchaWidgetId = widgetId;
+    });
+
     await this.fire
       .signInWithPhoneNumber('+55' + this.numberTel, this.recaptchaVerifier)
-      .then((token) => {
-        console.log('tokennnnnnn', token);
+      .then((confirmationResult) => {
+        this.confirmationResult = confirmationResult;
       })
       .catch((err) => {
         console.log(err);
+        grecaptcha.reset(this.recaptchaWidgetId);
       });
 
-    SmsRetriever.startWatching().then(async (msg) => {
+    await SmsRetriever.startWatching().then(async (msg) => {
       console.log(msg);
+    });
+  }
+
+  async verificaCaptcha() {
+    console.log('verificaCaptcha');
+    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign', {
+      size: 'invisible',
+      callback: () => {
+        this.sendNumero();
+      },
+    });
+  }
+
+  async login() {
+    this.confirmationResult.confirm(this.code).then(async (result) => {
+      console.log(result);
     });
   }
 }
