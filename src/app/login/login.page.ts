@@ -2,7 +2,6 @@ import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever';
-
 declare let grecaptcha: any;
 
 @Component({
@@ -53,11 +52,17 @@ export class LoginPage implements OnInit {
   async verificaCaptcha() {
     console.log('verificaCaptcha');
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign', {
-      size: 'invisible',
-      callback: () => {
-        this.sendNumero();
+      'size': 'invisible',
+      callback: (response) => {
+        
       },
     });
+
+    this.recaptchaVerifier.render().then((widgetId) => {
+      this.recaptchaWidgetId = widgetId;
+    });
+
+    this.sendNumero()
   }
 
   async login() {
