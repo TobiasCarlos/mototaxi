@@ -58,15 +58,16 @@ export class LoginPage implements OnInit {
       size: 'invisible',
       callback: (response) => {
         console.log(response);
-
       }
     });
+
+    this.recaptchaVerifier.verify()
 
     this.recaptchaVerifier.render().then((widgetId) => {
       this.recaptchaWidgetId = widgetId;
     });
 
-    this.sendNumero();
+    
   }
 
   async login() {

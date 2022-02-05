@@ -7,12 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   navigate = []
+  nome = "Sérgio Marinelli";
   constructor() {
     this.navigate = [
       {
-        title: "mapa",
-        icon: "map",
-        url: "/mapa"
+        title: "Perfil",
+        icon: "person-outline",
+        url: "/perfil"
+      },
+      {
+        title: "Home",
+        icon: "car-outline",
+        url: "/home"
       }
     ]
   }
