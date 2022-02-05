@@ -3,16 +3,19 @@
     <ion-header>  
 
       <div class="textoNome">Ola, {{nome}}</div >
+
       
     </ion-header>
+    
     <ion-content>
+
       <ion-list>
         <div  *ngFor="let page of navigate">
           <ion-menu-toggle auto-hide="true">
             <ion-item
             class="menuPages"
               lines="none"
-              (click)="toggleMenu(page)"
+              
               routerLink="{{page.url}}"
               class="item-menu"
             >

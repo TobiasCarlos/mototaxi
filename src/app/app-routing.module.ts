@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'mapa-carro',
+    loadChildren: () => import('./mapa-carro/mapa-carro.module').then( m => m.MapaCarroPageModule)
+  },
 ];
 
 @NgModule({

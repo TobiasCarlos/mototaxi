@@ -1,0 +1,10 @@
+<ion-menu-button class="menu"></ion-menu-button>
+<ion-content>
+  <div #map id="map" (click)="event($event)"></div>
+  <div id="search_content">
+    <ion-list class="ion-margin-horizontal" [hidden]="!search?.length" >
+      <ion-item (click)="calcRoute(result)" *ngFor="let result of searchResults">{{result.description}}</ion-item>
+    </ion-list>
+    <ion-searchbar  id="pac-input" (ionChange)="mapsSearch()" [(ngModel)]="search"  #searchBar></ion-searchbar>
+  </div>
+</ion-content>

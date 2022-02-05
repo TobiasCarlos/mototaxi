@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   navigate = []
   nome = "Sérgio Marinelli";
+  numero = "37-999510833";
   constructor() {
     this.navigate = [
       {
