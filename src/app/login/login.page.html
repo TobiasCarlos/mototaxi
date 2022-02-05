@@ -11,7 +11,7 @@
     </h3></ion-col
   >
   <ion-col class="center">
-    <form action="submit" (ngSubmit)="verificaNumber()">
+    <form action="submit" (ngSubmit)="verificaCaptcha()">
       <ion-input
         name="number"
         [(ngModel)]="numberTel"
@@ -27,3 +27,11 @@
   </ion-col>
   <div id="sign"></div>
 </ion-content>
+
+<ion-item>
+  <ion-label>COdigo</ion-label>
+  <ion-input type="text" [(ngModel)]="code"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-button (click)="login()">confirm</ion-button>
+</ion-item>
