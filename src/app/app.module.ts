@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
+import { menuController } from '@ionic/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
@@ -16,6 +19,7 @@ import { environment } from 'src/environments/environment';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    BrowserModule, IonicModule.forRoot(), AppRoutingModule, FontAwesomeModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
@@ -29,4 +33,13 @@ import { environment } from 'src/environments/environment';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(library: FaIconLibrary) { 
+		library.addIconPacks(fas, fab, far);
+	}
+
+
+  toggleMenu(){ 
+    
+  }
+}

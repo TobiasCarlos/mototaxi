@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MotoPageRoutingModule } from './moto-routing.module';
+import { PerfilPageRoutingModule } from './perfil-routing.module';
 
-import { MotoPage } from './moto.page';
+import { PerfilPage } from './perfil.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MotoPageRoutingModule
+    PerfilPageRoutingModule
   ],
-  declarations: [MotoPage]
+  declarations: [PerfilPage]
 })
-export class MotoPageModule {}
+export class PerfilPageModule {}

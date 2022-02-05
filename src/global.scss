@@ -82,3 +82,10 @@ ion-header {
   height: 45px;
   border: 3px solid var(--ion-color-primary);
 }
+
+ion-menu-button{
+  position: absolute;
+  color: white;
+  top: 10px;
+  left: 8px;
+}

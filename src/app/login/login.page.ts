@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever';
 declare let grecaptcha: any;
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginPage implements OnInit {
   code;
   recaptchaWidgetId;
   smsSend = false;
-  constructor(private fire: AngularFireAuth) {}
+  constructor(private fire: AngularFireAuth, private navCtrl: NavController) {}
 
   ngOnInit() {}
   ionViewDidEnter() {}
@@ -51,12 +52,13 @@ export class LoginPage implements OnInit {
   }
 
   async verificaCaptcha() {
+    this.smsSend = true;
     console.log('verificaCaptcha');
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign', {
       size: 'invisible',
       callback: (response) => {
         console.log(response);
-        this.smsSend = true;
+
       }
     });
 
@@ -71,5 +73,12 @@ export class LoginPage implements OnInit {
     this.confirmationResult.confirm(this.code).then(async (result) => {
       console.log(result);
     });
+  }
+
+  perfilPage(){
+    /* send to login page */
+    this.navCtrl.navigateForward('/perfil');
+
+    
   }
 }

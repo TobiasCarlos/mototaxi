@@ -1,17 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class HomePage {
+export class HomePage  {
   cashback = "0,00"
+  page = 'carro'
   formCorrida = {
     sexo: 'mf'
   }
+  enderecos =[
+    {
+      endereco: 'Rua Anapolis 11'
+    },
+    {
+      endereco: "Rua Coronel Joao de Barros 427b"
+    }
+  ] 
   constructor() {}
   selectSexo(sexo){
     this.formCorrida.sexo = sexo;
   }
+
+  setPage(page){
+    this.page = page;
+  }
+
 }
