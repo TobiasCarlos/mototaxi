@@ -52,17 +52,17 @@ export class LoginPage implements OnInit {
   async verificaCaptcha() {
     console.log('verificaCaptcha');
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign', {
-      'size': 'invisible',
+      size: 'invisible',
       callback: (response) => {
-        
-      },
+        console.log(response);
+      }
     });
 
     this.recaptchaVerifier.render().then((widgetId) => {
       this.recaptchaWidgetId = widgetId;
     });
 
-    this.sendNumero()
+    this.sendNumero();
   }
 
   async login() {
