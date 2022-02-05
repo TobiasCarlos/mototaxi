@@ -15,6 +15,7 @@ export class LoginPage implements OnInit {
   confirmationResult;
   code;
   recaptchaWidgetId;
+  smsSend = false;
   constructor(private fire: AngularFireAuth) {}
 
   ngOnInit() {}
@@ -55,6 +56,7 @@ export class LoginPage implements OnInit {
       size: 'invisible',
       callback: (response) => {
         console.log(response);
+        this.smsSend = true;
       }
     });
 

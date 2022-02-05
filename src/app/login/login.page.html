@@ -3,6 +3,7 @@
   <ion-col class="center">
     <img class="logo" src="../../assets/images/logo.png" />
   </ion-col>
+  <div class="codigoSms" *ngIf="!smsSend">
   <ion-col class="center"><h1>Seja bem vindo(a)</h1></ion-col>
   <ion-col class="center"
     ><h3>
@@ -25,13 +26,30 @@
       >
     </form>
   </ion-col>
-  <div id="sign"></div>
+</div>
+<div class="codigoSms" *ngIf="smsSend">
+  <ion-col class="center"><h1>Código enviado com sucesso!</h1></ion-col>
+  <ion-col class="center"
+    ><h3>
+      Insira o código <br />
+      sms recebido!
+    </h3></ion-col
+  >
+  <ion-col class="center">
+    <form action="submit" (ngSubmit)="sendSms()">
+      <ion-input
+        name="number"
+        [(ngModel)]="numberTel"
+        type="tel"
+        (ionChange)="formatNumber($event)"
+        placeholder="234765"
+        ><ion-icon name="call-outline"></ion-icon
+      ></ion-input>
+      <ion-button type="submit"
+        ><ion-icon name="enter-outline"></ion-icon>Válidar código!</ion-button
+      >
+    </form>
+  </ion-col>
+</div>
 </ion-content>
 
-<ion-item>
-  <ion-label>COdigo</ion-label>
-  <ion-input type="text" [(ngModel)]="code"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-button (click)="login()">confirm</ion-button>
-</ion-item>
