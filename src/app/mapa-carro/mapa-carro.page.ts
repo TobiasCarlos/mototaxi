@@ -1,4 +1,7 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Environment, GoogleMap, GoogleMaps } from '@ionic-native/google-maps';
+import { LoadingController, Platform } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 declare var google: any;
 
 @Component({
@@ -7,21 +10,40 @@ declare var google: any;
   styleUrls: ['./mapa-carro.page.scss'],
 })
 export class MapaCarroPage implements OnInit {
+  @ViewChild('map', { static: true }) mapElement: any;
   googleAutoComplete = new google.maps.places.AutocompleteService(); 
   searchResults = new Array<any>();
   search : string;
   originMarker: any;
   destination: any;
+  loading: any;
+  map: GoogleMap;
 
-  constructor(private ngZone: NgZone) {
+  constructor(private ngZone: NgZone, private platform: Platform, private loadingCtrl: LoadingController) {
 
 
   }
 
   ngOnInit() {
-    this.initMap();
-  }
+      this.mapElement = this.mapElement.nativeElement;
+      this.mapElement.style.width = this.platform.width() + 'px';
+      this.mapElement.style.height = this.platform.height() + 'px';
+      this.loadMap()
 
+  }
+ async loadMap(){
+    this.loading = await this.loadingCtrl.create({
+      message: 'Por favor espere...'
+    });
+    await this.loading.present();
+    Environment.setEnv({
+      'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyC6mlxi0aD4sju5ZPj5YDxKyDiQs_k-3RY',
+      'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyC6mlxi0aD4sju5ZPj5YDxKyDiQs_k-3RY'
+    });
+
+    this.map = GoogleMaps.create(this.mapElement)
+
+  }
   initMap(): void {
     //get position of user
 

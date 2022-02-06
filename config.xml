@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.tcb.taxi" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>Mobi</name>
+    <description>Mobilidade Urbana.</description>
+    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -20,7 +20,7 @@
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
         <preference name="Scheme" value="http" />
-       <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:usesCleartextTraffic="true" />
         </edit-config>
         <resource-file src="resources/android/xml/network_security_config.xml" target="app/src/main/res/xml/network_security_config.xml" />
@@ -98,4 +98,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^5.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyC6mlxi0aD4sju5ZPj5YDxKyDiQs_k-3RY" />
+    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyC6mlxi0aD4sju5ZPj5YDxKyDiQs_k-3RY" />
 </widget>
