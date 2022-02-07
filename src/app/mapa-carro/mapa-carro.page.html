@@ -2,6 +2,18 @@
 <ion-content>
   <div #map id="map" (click)="event($event)"></div>
   <div id="search_content">
+    <ion-item>
+      <p>{{time}}<br/></p>
+
+    </ion-item>
+    <ion-item>
+      <p>{{distance}}<br/></p>
+    </ion-item>
+    <ion-item>
+      <p>R$:{{price}},00<br/></p>
+    </ion-item>
+
+
     <ion-list class="ion-margin-horizontal" [hidden]="!search?.length" >
       <ion-item (click)="calcRoute(result)" *ngFor="let result of searchResults">{{result.description}}</ion-item>
     </ion-list>
