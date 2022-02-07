@@ -1,5 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-declare var google: any;
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+declare let google: any;
 
 @Component({
   selector: 'app-mapa-carro',
@@ -7,9 +8,9 @@ declare var google: any;
   styleUrls: ['./mapa-carro.page.scss'],
 })
 export class MapaCarroPage implements OnInit {
-  googleAutoComplete = new google.maps.places.AutocompleteService(); 
+  googleAutoComplete = new google.maps.places.AutocompleteService();
   searchResults = new Array<any>();
-  search : string;
+  search: string;
   originMarker: any;
   destination: any;
   map: any;
@@ -17,76 +18,53 @@ export class MapaCarroPage implements OnInit {
   time: any;
   price = 12.00;
 
-  constructor(private ngZone: NgZone) {
+  constructor(private ngZone: NgZone, private geolocation: Geolocation) { }
 
 
-  }
+
 
   ngOnInit() {
     this.initialize();
   }
 
-  // initMap(): void {
-  //   //get position of user
-
-
-  //     let map = new google.maps.Map(
-  //       document.getElementById('map') as HTMLElement,
-  //       {
-  //         center: { lat: -34.9290, lng: 138.6010 },
-  //         zoom: 15,
-  //         //remove buttons
-  //         disableDefaultUI: true,
-  //         //uber style
-  //         //type road
-  //         mapTypeId: 'roadmap'
-  //       }
-  //     );
-
-
-
-
-
-
-  // }
-
   initialize() {
-    /* get my location*/
-    navigator.geolocation.getCurrentPosition(position => {
-      var myLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      console.log( "teste", myLocation);
-      var lat = myLocation.lat();
-      var lng = myLocation.lng();
-
+    this.geolocation.getCurrentPosition({ enableHighAccuracy: true }).then((resp) => {
+      console.log(resp);
+    }, error => {
+      console.log(error);
+    }).catch(error => {
+      console.log(error);
+    });
+    const lat = -23.5489;
+    const lng = -46.6388;
     // Create a map centered in Pyrmont, Sydney (Australia).
     this.map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: lat, lng: lng},
+      center: { lat, lng },
       zoom: 15
     });
     this.map.markers = [];
     this.originMarker = new google.maps.Marker({
-      position: {lat: lat, lng: lng},
+      position: { lat, lng },
       map: this.map,
       title: 'Localização Atual'
     });
 
     // Search for Google's office in Australia.
-    var request = {
+    const request = {
       location: this.map.getCenter(),
       radius: '500',
       query: 'Google Sydney'
     };
-  
-    var service = new google.maps.places.PlacesService(this.map);
+
+    const service = new google.maps.places.PlacesService(this.map);
     service.textSearch(request, this.callback);
-  });
   }
-  
+
   // Checks that the PlacesServiceStatus is OK, and adds a marker
   // using the place ID and location from the PlacesService.
   callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      var marker = new google.maps.Marker({
+    if (this.map && status === google.maps.places.PlacesServiceStatus.OK) {
+      const marker = new google.maps.Marker({
         map: this.map,
         place: {
           placeId: results[0].place_id,
@@ -95,7 +73,7 @@ export class MapaCarroPage implements OnInit {
       });
     }
   }
-  
+
 
 
   event(event) {
@@ -105,61 +83,60 @@ export class MapaCarroPage implements OnInit {
 
 
   mapsSearch() {
-    if(!this.search.trim().length) return;
+    if (!this.search.trim().length) { return; }
     this.googleAutoComplete.getPlacePredictions({ input: this.search }, (predictions, status) => {
       this.ngZone.run(() => {
         this.searchResults = predictions;
       });
-      
     }
     );
 
-       
-   }
+
+  }
 
 
-  calcRoute(item: any){
-    this.search = "";
-    var request = {
+  calcRoute(item: any) {
+    this.search = '';
+    const request = {
       location: this.map.getCenter(),
       radius: '500',
       query: item.description
     };
-  
-    var service = new google.maps.places.PlacesService(this.map);
+
+    const service = new google.maps.places.PlacesService(this.map);
     service.textSearch(request, (results, status) => {
       /* pegar lat long */
-      var lat = results[0].geometry.location.lat();
-      var lng = results[0].geometry.location.lng();
-      console.log(lat, lng)
+      const lat = results[0].geometry.location.lat();
+      const lng = results[0].geometry.location.lng();
+      console.log(lat, lng);
       /* enviar centro do mapa para lat long */
-      this.map.setCenter({lat: lat, lng: lng});
+      this.map.setCenter({ lat, lng });
       /* criar marcador */
 
       this.map.markers.push(new google.maps.Marker({
         map: this.map,
-        position: {lat: lat, lng: lng}
+        position: { lat, lng }
       }));
 
       /* criar rota do origin marker ate o marker */
-      var directionsService = new google.maps.DirectionsService;
-      var directionsDisplay = new google.maps.DirectionsRenderer;
+      const directionsService = new google.maps.DirectionsService();
+      const directionsDisplay = new google.maps.DirectionsRenderer();
       directionsDisplay.setMap(this.map);
       directionsService.route({
         origin: this.originMarker.getPosition(),
-        destination: {lat: lat, lng: lng},
+        destination: { lat, lng },
         travelMode: 'DRIVING'
-      }, (response, status) => {
-        if (status === 'OK') {
+      }, (response, status2) => {
+        if (status2 === 'OK') {
           directionsDisplay.setDirections(response);
           /* pegar distancia de pontos */
-          this.distance= response.routes[0].legs[0].distance.text;
+          this.distance = response.routes[0].legs[0].distance.text;
           this.time = response.routes[0].legs[0].duration.text;
-          var distanceCal = parseInt(this.distance)
-          console.log(distanceCal)
-          if(distanceCal>5){
+          let distanceCal = Number(this.distance);
+          console.log(distanceCal);
+          if (distanceCal > 5) {
             distanceCal = distanceCal - 5;
-            this.price = distanceCal*2;
+            this.price = distanceCal * 2;
           }
         } else {
           window.alert('Directions request failed due to ' + status);

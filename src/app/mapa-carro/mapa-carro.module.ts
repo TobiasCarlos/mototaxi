@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -13,7 +14,10 @@ import { MapaCarroPage } from './mapa-carro.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    MapaCarroPageRoutingModule
+    MapaCarroPageRoutingModule,
+  ],
+  providers: [
+    Geolocation,
   ],
   declarations: [MapaCarroPage]
 })
