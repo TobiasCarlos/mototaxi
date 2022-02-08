@@ -1,6 +1,9 @@
 {
 	"appId": "com.tcb.taxi",
-	"appName": "C:/Program Files/Git/",
+	"appName": "Mob",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"server": {
+		"url": "http://192.168.0.117:8100"
+	}
 }
