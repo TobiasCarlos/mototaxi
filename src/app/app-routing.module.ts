@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'mapa-carro',
     loadChildren: () => import('./mapa-carro/mapa-carro.module').then( m => m.MapaCarroPageModule)
+  },  {
+    path: 'messages',
+    loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
   },
+
 ];
 
 @NgModule({

@@ -17,6 +17,8 @@ export class MapaCarroPage implements OnInit {
   distance: any;
   time: any;
   price = 12.00;
+  locationAtual;
+  locationDestino: any;
 
   constructor(private ngZone: NgZone, private geolocation: Geolocation) { }
 
@@ -29,7 +31,15 @@ export class MapaCarroPage implements OnInit {
 
   initialize() {
     this.geolocation.getCurrentPosition({ enableHighAccuracy: true }).then((resp) => {
-      console.log(resp);
+      console.log(resp)
+      /* pegar rua bairro e cidade */
+      const geocoder = new google.maps.Geocoder();
+      const latlng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+      geocoder.geocode({ 'latLng': latlng }, (results, status) => {
+      this.locationAtual = results[0].formatted_address;
+
+      })
+      
     }, error => {
       console.log(error);
     }).catch(error => {
@@ -39,6 +49,7 @@ export class MapaCarroPage implements OnInit {
     const lng = -46.6388;
     // Create a map centered in Pyrmont, Sydney (Australia).
     this.map = new google.maps.Map(document.getElementById('map'), {
+      disableDefaultUI: true,
       center: { lat, lng },
       zoom: 15
     });
@@ -117,6 +128,14 @@ export class MapaCarroPage implements OnInit {
         map: this.map,
         position: { lat, lng }
       }));
+
+      /* pegar rua, bairro e cidade */
+      const geocoder = new google.maps.Geocoder();
+      const latlng = new google.maps.LatLng(lat, lng);
+      geocoder.geocode({ 'latLng': latlng }, (results, status) => {
+        this.locationDestino = results[0].formatted_address;
+        console.log(this.locationDestino)
+      })
 
       /* criar rota do origin marker ate o marker */
       const directionsService = new google.maps.DirectionsService();
