@@ -1,29 +1,35 @@
 <ion-header>
-  <ion-header >
+  <ion-header>
     <ion-menu-button></ion-menu-button>
-   
   </ion-header>
 </ion-header>
 
 <ion-content>
-    <div class="foto">
-      <ion-avatar>
-        <img src="../../assets/images/perfil.jpg">
-        <div class="alterar">
-          <ion-icon name="camera-outline"></ion-icon>
-        </div>
-      </ion-avatar>
-    </div>
-    <ion-col class="center"><h1>Informações</h1></ion-col>
-    <ion-col class="center">
-      <div class="divInputs">
-        <ion-label >Nome</ion-label>
-        <ion-item class="inputs">
-          <ion-input name="name"  [(ngModel)]="nome" placeholder="Sérgio Marinelli"></ion-input>
-        </ion-item>
+  <div class="foto">
+    <ion-avatar>
+      <img src="../../assets/images/perfil.jpg" />
+      <div class="alterar">
+        <ion-icon name="camera-outline"></ion-icon>
       </div>
-    </ion-col>
-    <ion-col class="center">
-      <ion-button><ion-icon name="enter-outline"></ion-icon>Atualizar informações!</ion-button>
-    </ion-col>
+    </ion-avatar>
+  </div>
+  <ion-col class="center"><h1>Informações</h1></ion-col>
+  <ion-col class="center">
+    <div class="divInputs">
+      <ion-label>Nome</ion-label>
+      <ion-item class="inputs">
+        <ion-input
+          name="name"
+          [(ngModel)]="nome"
+          placeholder="Sérgio Marinelli"
+        ></ion-input>
+      </ion-item>
+    </div>
+  </ion-col>
+  <ion-col class="center">
+    <ion-button [routerLink]="['/tabs-home']"
+      ><ion-icon name="enter-outline"></ion-icon>Atualizar
+      informações!</ion-button
+    >
+  </ion-col>
 </ion-content>

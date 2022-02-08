@@ -6,38 +6,32 @@ declare var google;
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage  {
+export class HomePage {
+  cashback = '0,00';
+  page = 'carro';
 
-  cashback = "0,00"
-  page = 'carro'
- 
- 
   formCorrida = {
-    sexo: 'mf'
-  }
-  enderecos =[
+    sexo: 'mf',
+  };
+  enderecos = [
     {
-      endereco: 'Rua Anapolis 11'
+      endereco: 'Rua Anapolis 11',
     },
     {
-      endereco: "Rua Coronel Joao de Barros 427b"
-    }
-  ] 
-  constructor(private platform: Platform, private loadingCtrl: LoadingController) {}
+      endereco: 'Rua Coronel Joao de Barros 427b',
+    },
+  ];
+  constructor(
+    private platform: Platform,
+    private loadingCtrl: LoadingController
+  ) {}
 
-  ngOnInit() {
-    
-  }
-  selectSexo(sexo){
+  ngOnInit() {}
+  selectSexo(sexo) {
     this.formCorrida.sexo = sexo;
   }
 
-  setPage(page){
+  setPage(page) {
     this.page = page;
   }
-
-  
-
-
-
 }
