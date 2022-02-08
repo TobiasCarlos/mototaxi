@@ -20,6 +20,11 @@ export class AppComponent {
         title: "Home",
         icon: "car-outline",
         url: "/home"
+      },
+      {
+        title: "Mensagens",
+        icon: "chatbox-ellipses-outline",
+        url: "/messages"
       }
     ]
   }

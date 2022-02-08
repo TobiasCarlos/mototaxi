@@ -2,21 +2,35 @@
 <ion-content>
   <div #map id="map" (click)="event($event)"></div>
   <div id="search_content">
-    <ion-item>
+    <div class="infoCorrida" >
+      <div class="infoMobi">Mob</div>
+    <div class="firstEndereco" *ngIf="locationDestino">
+      <p>{{locationAtual}}</p>
+      <ion-icon name="location-outline"></ion-icon>
+    </div>
+    <div class="firstEndereco" *ngIf="locationDestino">
+      <p>{{locationDestino}}</p>
+      <ion-icon name="navigate-outline"></ion-icon>
+    </div>
+    <div *ngIf="time" class="tempo">
+      <ion-icon name="time-outline"></ion-icon>
       <p>{{time}}<br/></p>
 
-    </ion-item>
-    <ion-item>
+    </div>
+    <div *ngIf="distance" class="distancia">
+      <ion-icon name="analytics-outline"></ion-icon>
       <p>{{distance}}<br/></p>
-    </ion-item>
-    <ion-item>
+    </div>
+   <!--  <div>
       <p>R$:{{price}},00<br/></p>
-    </ion-item>
-
-
+    </div> -->
     <ion-list class="ion-margin-horizontal" [hidden]="!search?.length" >
       <ion-item (click)="calcRoute(result)" *ngFor="let result of searchResults">{{result.description}}</ion-item>
     </ion-list>
     <ion-searchbar  id="pac-input" (ionChange)="mapsSearch()" [(ngModel)]="search"  #searchBar></ion-searchbar>
   </div>
+  </div>
+
+
+
 </ion-content>

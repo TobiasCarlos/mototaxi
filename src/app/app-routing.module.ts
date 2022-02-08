@@ -35,6 +35,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'messages',
+    loadChildren: () =>
+      import('./messages/messages.module').then((m) => m.MessagesPageModule),
+  },
+  {
     path: 'tabs-home',
     loadChildren: () =>
       import('./tabs-home/tabs-home.module').then((m) => m.TabsHomePageModule),
