@@ -14,7 +14,9 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
-
+import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { AjaxService } from './services/ajax.service';
+import { Component, Injectable } from '@angular/core';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -23,6 +25,7 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp({})),
     provideFirestore(() => getFirestore()),
@@ -30,6 +33,10 @@ import { environment } from 'src/environments/environment';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AngularFireAuth,
+    HttpClient,
+    AjaxService,
+    Injectable,
+    Component
   ],
   bootstrap: [AppComponent],
 })

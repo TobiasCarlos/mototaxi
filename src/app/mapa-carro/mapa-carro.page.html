@@ -15,12 +15,12 @@
       <div *ngIf="time" class="tempo">
         <ion-icon name="time-outline"></ion-icon>
         <p>{{time}}<br /></p>
-      </div>
-      <div *ngIf="distance" class="distancia">
         <ion-icon name="analytics-outline"></ion-icon>
         <p>{{distance}}<br /></p>
       </div>
-      <div *ngIf="price != 0">
+
+      <div *ngIf="price != 0" class="price">
+        <ion-icon class="icon" name="cash-outline"></ion-icon>
         <p>R$:{{price}},00<br /></p>
       </div>
       <ion-list class="ion-margin-horizontal" [hidden]="!search?.length">
@@ -34,6 +34,7 @@
         id="pac-input"
         (ionChange)="mapsSearch()"
         [(ngModel)]="search"
+        placeholder="Digite o endereço de destino"
         #searchBar
       ></ion-searchbar>
     </div>
