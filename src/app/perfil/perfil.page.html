@@ -19,17 +19,16 @@
       <ion-label>Nome</ion-label>
       <ion-item class="inputs">
         <ion-input
-          name="name"
+          name="name"S
           [(ngModel)]="nome"
-          placeholder="Sérgio Marinelli"
+          placeholder="Digite seu nome"
         ></ion-input>
       </ion-item>
     </div>
   </ion-col>
   <ion-col class="center">
-    <ion-button [routerLink]="['/tabs-home']"
-      ><ion-icon name="enter-outline"></ion-icon>Atualizar
-      informações!</ion-button
+    <ion-button (click)="submitInformations()"
+      ><ion-icon name="enter-outline"></ion-icon>Atualizar cadastro!</ion-button
     >
   </ion-col>
 </ion-content>
