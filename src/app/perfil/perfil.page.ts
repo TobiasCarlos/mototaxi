@@ -10,7 +10,7 @@ import { catchError, retry } from 'rxjs/operators';
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
 })
-export class PerfilPage implements OnInit {
+export class PerfilPage {
   nome = '';
   numberTel = '';
   constructor(public route: ActivatedRoute, private http: HttpClient) {
@@ -18,10 +18,6 @@ export class PerfilPage implements OnInit {
       this.numberTel = params['numberTel'];
     });
   }
-
-  ngOnInit() {
-  }
-
 
   submitInformations() {
     console.log(this.nome);

@@ -170,6 +170,9 @@ export class MapaCarroPage implements OnInit {
               console.log(distanceCal);
               this.price = distanceCal * 2;
             }
+            else{
+              this.price = 12;
+            }
           } else {
             window.alert('Directions request failed due to ' + status);
           }
