@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { App } from '@capacitor/app';
 
 @Component({
   selector: 'app-root',
@@ -27,5 +28,9 @@ export class AppComponent {
         url: '/messages',
       },
     ];
+
+    App.addListener('appStateChange', ({ isActive }) => {
+      console.log('App state changed. Is active?', isActive);
+    });
   }
 }

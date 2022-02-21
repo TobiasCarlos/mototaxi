@@ -7,8 +7,8 @@
 <ion-content>
   <div class="foto">
     <ion-avatar>
-      <img src="../../assets/images/perfil.jpg" />
-      <div class="alterar">
+      <img [src]="imageBase64" />
+      <div class="alterar" (click)="tirarFoto()">
         <ion-icon name="camera-outline"></ion-icon>
       </div>
     </ion-avatar>
@@ -20,16 +20,16 @@
       <ion-item class="inputs">
         <ion-input
           name="name"
+          S
           [(ngModel)]="nome"
-          placeholder="Sérgio Marinelli"
+          placeholder="Digite seu nome"
         ></ion-input>
       </ion-item>
     </div>
   </ion-col>
   <ion-col class="center">
-    <ion-button [routerLink]="['/tabs-home']"
-      ><ion-icon name="enter-outline"></ion-icon>Atualizar
-      informações!</ion-button
+    <ion-button (click)="submitInformations()"
+      ><ion-icon name="enter-outline"></ion-icon>Atualizar cadastro!</ion-button
     >
   </ion-col>
 </ion-content>
