@@ -1,0 +1,91 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import url("https://fonts.googleapis.com/css2?family=NTR&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Numans&display=swap");
+.imagemFundo {
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/images/fundoMap.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  --background: #fff;
+  opacity: 0.1;
+  position: fixed;
+}
+
+.center {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.space {
+  margin-top: 25px;
+}
+
+ion-header {
+  background: var(--ion-color-primary);
+  height: 55px;
+  width: 100%;
+}
+.divInputs {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  ion-label {
+    position: absolute;
+    top: -22px;
+    left: 11vw;
+    height: 40px;
+    background: white;
+    z-index: 10;
+    font-size: 21px;
+    padding: 10px;
+    color: var(--ion-color-primary);
+  }
+}
+.inputs {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 15px;
+  height: 45px;
+  border: 3px solid var(--ion-color-primary);
+}
+
+ion-menu-button{
+  position: absolute;
+  color: white;
+  top: 10px;
+  left: 8px;
+}

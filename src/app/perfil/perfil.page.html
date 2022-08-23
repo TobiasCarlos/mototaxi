@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-header>
+    <ion-menu-button></ion-menu-button>
+  </ion-header>
+</ion-header>
+
+<ion-content>
+  <div class="foto">
+    <ion-avatar>
+      <img [src]="imageBase64" />
+      <div class="alterar" (click)="tirarFoto()">
+        <ion-icon name="camera-outline"></ion-icon>
+      </div>
+    </ion-avatar>
+  </div>
+  <ion-col class="center"><h1>Informações</h1></ion-col>
+  <ion-col class="center">
+    <div class="divInputs">
+      <ion-label>Nome</ion-label>
+      <ion-item class="inputs">
+        <ion-input
+          name="name"
+          S
+          [(ngModel)]="nome"
+          placeholder="Digite seu nome"
+        ></ion-input>
+      </ion-item>
+    </div>
+  </ion-col>
+  <ion-col class="center">
+    <ion-button (click)="submitInformations()"
+      ><ion-icon name="enter-outline"></ion-icon>Atualizar cadastro!</ion-button
+    >
+  </ion-col>
+</ion-content>

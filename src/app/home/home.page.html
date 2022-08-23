@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-menu-button></ion-menu-button>
+  <ion-row class="cashback"
+    ><ion-icon name="cash-outline"></ion-icon>R$: {{cashback}}</ion-row
+  >
+</ion-header>
+<ion-content>
+  <div class="content">
+    <ion-col class="center"><h1>Peça sua moto!</h1></ion-col>
+    <ion-col class="center">
+      <div class="divInputs">
+        <ion-label>Nome</ion-label>
+        <ion-item class="inputs">
+          <ion-input placeholder="Sérgio Marinelli"></ion-input>
+        </ion-item>
+      </div>
+    </ion-col>
+    <div class="relative">
+      <ion-col class="space center endereco">
+        <div class="divInputs">
+          <ion-label>Endereço</ion-label>
+          <ion-item class="inputs">
+            <ion-input placeholder="Rua Anápolis"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col class="space center number">
+        <div class="divInputs">
+          <ion-label class="numberLabel">Número</ion-label>
+          <ion-item class="inputs">
+            <ion-input placeholder="11"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </div>
+    <ion-col class="center space">
+      <div class="divInputs">
+        <ion-label>Informações úteis</ion-label>
+        <ion-item class="inputs">
+          <ion-input placeholder="Ao lado do cristo"></ion-input>
+        </ion-item>
+      </div>
+    </ion-col>
+
+    <ion-col class="center space">
+      <div class="sexo">
+        <div
+          class="mf"
+          [ngClass]="{'active': formCorrida.sexo === 'mf'}"
+          (click)="selectSexo('mf')"
+        >
+          <img src="../../assets/images/man.png" />
+          <div class="line"></div>
+          <img src="../../assets/images/fem.png" />
+        </div>
+        <div
+          class="m"
+          [ngClass]="{'active': formCorrida.sexo === 'm'}"
+          (click)="selectSexo('m')"
+        >
+          <img src="../../assets/images/man.png" />
+        </div>
+        <div
+          class="f"
+          [ngClass]="{'active': formCorrida.sexo === 'f'}"
+          (click)="selectSexo('f')"
+        >
+          <img src="../../assets/images/fem.png" />
+        </div>
+      </div>
+    </ion-col>
+
+    <ion-col class="center space">
+      <div class="divInputs quant">
+        <ion-label>Quantidade</ion-label>
+        <ion-item class="inputs">
+          <ion-select value="1">
+            <ion-select-option *ngFor="let item of [0,1,2,3,4,5]"
+              >{{item}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </div>
+    </ion-col>
+
+    <ion-col class="center">
+      <ion-button
+        ><ion-icon name="enter-outline"></ion-icon>Enviar código!</ion-button
+      >
+    </ion-col>
+
+    <ion-col class="center">
+      <ion-item class="historico">
+        <h1>Histórico de endereços</h1>
+      </ion-item>
+    </ion-col>
+
+    <ion-list>
+      <ion-item *ngFor="let end of enderecos">
+        <div class="enderecos">
+          {{end.endereco}}
+          <p>Usar</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<!-- 
+<div class="tab">
+    <div  (click)="setPage('carro')">
+      <fa-icon class="icon" icon="car"></fa-icon>
+      <ion-label class="labelVeic">Carro</ion-label>
+    </div>
+
+    <div (click)="setPage('moto')">
+      <fa-icon class="icon" icon="motorcycle"></fa-icon>
+      <ion-label class="labelVeic">Moto</ion-label>
+    </div>
+</div > -->

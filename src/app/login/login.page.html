@@ -1,0 +1,54 @@
+<ion-content>
+  <div class="imagemFundo"></div>
+  <ion-col class="center">
+    <img class="logo" src="../../assets/images/download.png" />
+  </ion-col>
+  <div class="codigoSms" *ngIf="!smsSend">
+  <ion-col class="center"><h1>Seja bem vindo(a)</h1></ion-col>
+  <ion-col class="center"
+    ><h3>
+      Insira seu número <br />
+      de telefone.
+    </h3></ion-col
+  >
+  <ion-col class="center">
+    <form action="submit" (ngSubmit)="verificaCaptcha()">
+      <ion-input
+        name="number"
+        [(ngModel)]="numberTel"
+        type="tel"
+        (ionChange)="formatNumber($event)"
+        placeholder="Ex:(35)-99943-0988"
+        ><ion-icon name="call-outline"></ion-icon
+      ></ion-input>
+      <ion-button type="submit"
+        ><ion-icon name="enter-outline"></ion-icon>Enviar código!</ion-button
+      >
+    </form>
+  </ion-col>
+</div>
+<div class="codigoSms" *ngIf="smsSend">
+  <ion-col class="center"><h1>Código enviado com sucesso!</h1></ion-col>
+  <ion-col class="center"
+    ><h3>
+      Insira o código <br />
+      sms recebido!
+    </h3></ion-col
+  >
+  <ion-col class="center">
+    <form action="submit" (ngSubmit)="perfilPage()">
+      <ion-input
+        name="number"
+        [(ngModel)]="numberTel"
+        type="tel"
+        (ionChange)="formatNumber($event)"
+        placeholder="234765"
+        ><ion-icon name="call-outline"></ion-icon
+      ></ion-input>
+      <ion-button type="submit"
+        ><ion-icon name="enter-outline"></ion-icon>Válidar código!</ion-button
+      >
+    </form>
+  </ion-col>
+</div>
+</ion-content>

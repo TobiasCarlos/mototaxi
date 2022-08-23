@@ -1,0 +1,42 @@
+<ion-menu-button class="menu"></ion-menu-button>
+<ion-content>
+  <div #map id="map" (click)="event($event)"></div>
+  <div id="search_content">
+    <div class="infoCorrida">
+      <div class="infoMobi">Mob</div>
+      <div class="firstEndereco" *ngIf="locationDestino">
+        <p>{{locationAtual}}</p>
+        <ion-icon name="location-outline"></ion-icon>
+      </div>
+      <div class="firstEndereco" *ngIf="locationDestino">
+        <p>{{locationDestino}}</p>
+        <ion-icon name="navigate-outline"></ion-icon>
+      </div>
+      <div *ngIf="time" class="tempo">
+        <ion-icon name="time-outline"></ion-icon>
+        <p>{{time}}<br /></p>
+        <ion-icon name="analytics-outline"></ion-icon>
+        <p>{{distance}}<br /></p>
+      </div>
+
+      <div *ngIf="price != 0" class="price">
+        <ion-icon class="icon" name="cash-outline"></ion-icon>
+        <p>R$:{{price}},00<br /></p>
+      </div>
+      <ion-list class="ion-margin-horizontal" [hidden]="!search?.length">
+        <ion-item
+          (click)="calcRoute(result)"
+          *ngFor="let result of searchResults"
+          >{{result.description}}</ion-item
+        >
+      </ion-list>
+      <ion-searchbar
+        id="pac-input"
+        (ionChange)="mapsSearch()"
+        [(ngModel)]="search"
+        placeholder="Digite o endereço de destino"
+        #searchBar
+      ></ion-searchbar>
+    </div>
+  </div>
+</ion-content>

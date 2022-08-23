@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mob</string>
+    <string name="title_activity_main">Mob</string>
+    <string name="package_name">com.tcb.taxi</string>
+    <string name="custom_url_scheme">com.tcb.taxi</string>
+</resources>

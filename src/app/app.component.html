@@ -1,0 +1,31 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="content1">
+    <ion-header>  
+
+      <div class="textoNome">Ola, {{nome}}</div >
+
+      
+    </ion-header>
+    
+    <ion-content>
+
+      <ion-list>
+        <div  *ngFor="let page of navigate">
+          <ion-menu-toggle auto-hide="true">
+            <ion-item
+            class="menuPages"
+              lines="none"
+              
+              routerLink="{{page.url}}"
+              class="item-menu"
+            >
+              <ion-icon name="{{ page.icon }}" slot="start"></ion-icon>
+              <ion-label>{{ page.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </div>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content1"></ion-router-outlet>
+</ion-app>

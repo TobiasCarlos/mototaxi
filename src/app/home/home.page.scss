@@ -1,0 +1,198 @@
+
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .backgroundWhite {
+    background-color: white;
+  }
+  .content {
+    background-color: #fff;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  .cashback {
+    position: absolute;
+    right: 25px;
+    top: 18px;
+    font-family: "Numans", sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ion-icon {
+      font-size: 24px;
+      padding-right: 5px;
+    }
+  }
+  .numEndereco {
+    width: 30%;
+  }
+  h1 {
+    font-family: "Numans", sans-serif;
+    font-size: 31px;
+  }
+  .endereco {
+    width: 65%;
+    margin-left: 7px;
+  }
+  .relative {
+    position: relative;
+  }
+  .number {
+    position: absolute;
+    right: 10px;
+    top: -25px;
+    width: 36.5%;
+  }
+  .numberLabel {
+    left: 21px;
+  }
+  .sexo {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+    gap: 10px;
+    margin-top: -10px;
+    .mf {
+      width: 33.3%;
+      border: 3px solid var(--ion-color-primary);
+      height: 100%;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-around;
+      opacity: 0.6 !important;
+      .line {
+        width: 3px;
+        height: 80%;
+        margin-top: 3%;
+        background: var(--ion-color-primary);
+      }
+    }
+    .m {
+      width: 33.3%;
+      border: 3px solid var(--ion-color-primary);
+      height: 100%;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      opacity: 0.6 !important;
+    }
+    .f {
+      width: 33.3%;
+      border: 3px solid var(--ion-color-primary);
+      height: 100%;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      opacity: 0.6 !important;
+    }
+    .active {
+      height: 110%;
+      background: var(--ion-color-primary);
+      border: 6px double white;
+      opacity: 1 !important;
+      .line {
+        background-color: white;
+      }
+    }
+  }
+  
+  .quant {
+    width: 50%;
+    .inputs {
+      padding-left: 28%;
+      font-size: 23px;
+    }
+    ion-label {
+      margin-left: 23%;
+    }
+  }
+  
+  ion-button {
+    width: 90%;
+    min-height: 5vh;
+    max-height: 5vh;
+    margin-top: 2vh;
+    font-size: calc(1.7vw + 1.7vh);
+    --border-radius: 15px !important;
+    font-weight: 400;
+    font-family: "Numans", sans-serif;
+    ion-icon {
+      padding-right: 11px;
+      margin-left: -8px;
+      font-size: 30px;
+    }
+  }
+  .icon {
+    font-size: 40px;
+    color: var(--ion-color-primary);
+  }
+  
+  .historico {
+    h1 {
+      font-size: 25px;
+    }
+  }
+  .enderecos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+    height: 100%;
+    margin-bottom: 3px;
+    font-size: calc(1.3vw + 1.3vh);
+    color: white;
+    border-radius: 10px;
+    background-color: var(--ion-color-primary);
+    p {
+      position: absolute;
+      right: 40px;
+    }
+  }
+  .labelVeic {
+    z-index: 10;
+    position: absolute;
+    bottom: 2px;
+  }
+  
+  .motoImage {
+    margin-bottom: 16px;
+  }
+  .carroImage {
+    margin-top: 10px;
+  }
+  
+  ion-router-outlet {
+    display: none;
+  }
+  
+  .tab {
+    border-top: 2px solid var(--ion-color-primary);
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 20%;
+      height: 100%;
+      ion-label {
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+  
